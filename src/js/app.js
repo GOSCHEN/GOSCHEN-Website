@@ -1,0 +1,12 @@
+(function($){
+    $(document).ready(function(){
+        $('.circle').hover(
+            function(){
+                $(this).removeClass('shrink').addClass('grow');
+            },
+            function(){
+                $(this).removeClass('grow').addClass('shrink');
+            }
+        )
+    });
+})(jQuery);

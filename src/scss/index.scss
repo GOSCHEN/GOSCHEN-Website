@@ -1,0 +1,150 @@
+//@import "normalize";
+@import "fix";
+@import "mixins";
+@import "animations";
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+$font-stack: 'VT323', monospace;
+$color-first: #F1F7ED;
+$color-second: #C42021;
+$color-third: #262626;
+
+body {
+  max-height: 100%;
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header{
+
+  h1{
+    font-size: 40pt;
+    line-height: 40pt;
+    margin: 0 auto 8px auto;
+    border-bottom: 1px solid $color-third;
+    max-width: 3em;
+  }
+
+  h2{
+    margin-top: 8px;
+    font-size: 20pt;
+    line-height: 20pt;
+  }
+}
+
+h1 {
+  font-size: 40pt;
+  line-height: 40pt;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.center-horizontal {
+  margin: 0 auto;
+}
+
+.block {
+  padding: 8em 8em;
+  text-align: center;
+
+  &.first {
+    background: $color-first;
+    color: $color-third;
+    @include angle(after,true,2deg);
+
+    h1, h2 {
+      &::selection {
+        text-shadow: 0 0 3px $color-second;
+      }
+      &::-moz-selection {
+        text-shadow: 0 0 3px $color-second;
+      }
+    }
+  }
+
+  &.second {
+    background: $color-second;
+    color: $color-first;
+    padding: 12em 8em;
+    text-align: left;
+    @include angle(both, false, 2deg);
+
+    h1,h2 {
+      &::selection {
+        text-shadow: 0 0 3px $color-third;
+      }
+      &::-moz-selection {
+        text-shadow: 0 0 3px $color-third;
+      }
+    }
+  }
+
+  &.third {
+    background: $color-third;
+    color: $color-second;
+    padding: 8em 8em;
+    text-align: right;
+    @include angle(before, true, 2deg);
+
+    h1, h2 {
+      &::selection {
+        text-shadow: 0 0 3px $color-first;
+      }
+      &::-moz-selection {
+        text-shadow: 0 0 3px $color-first;
+      }
+    }
+  }
+}
+
+.circle {
+  width: 6em;
+  height: 6em;
+  -webkit-border-radius: 3em;
+  -moz-border-radius: 3em;
+  border-radius: 3em;
+  background: transparent;
+  border: 1px solid azure;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+
+  &.left{
+
+  }
+
+  &.right{
+    right: 8em;
+  }
+  
+  &.right.grow {
+    -webkit-animation-name: grow;
+    -moz-animation-name: grow;
+    -o-animation-name: grow;
+    animation-name: grow;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+    animation-duration: 1.5s;
+  }
+  &.right.shrink {
+    -webkit-animation-name: shrink;
+    -moz-animation-name: shrink;
+    -o-animation-name: shrink;
+    animation-name: shrink;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+    animation-duration: 0.5s;
+  }
+}

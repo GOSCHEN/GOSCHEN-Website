@@ -1,0 +1,33 @@
+@keyframes grow {
+  0% {
+    width: 6em;
+    height: 6em;
+  }
+
+  25% {
+    height: 13em;
+    width: 6em;
+  }
+
+  100% {
+    width: 50%;
+    height: 13em;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 50%;
+    height: 13em;
+  }
+
+  60% {
+    height: 13em;
+    width: 6em;
+  }
+
+  100% {
+    width: 6em;
+    height: 6em;
+  }
+}
